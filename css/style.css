@@ -1,0 +1,398 @@
+
+* {
+  font-family: 'DM Sans', sans-serif;
+}
+
+body {
+  background-color: #ecd4a5; 
+  color: #2c1e22;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+  margin: 0;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    gap: 30px ;
+    margin: 0;
+}
+
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #633b18;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0; 
+}
+
+.logo h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1d0e02;
+  letter-spacing: -1px;
+  margin-left: 15px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+nav :hover{
+    color: #120b01;
+}
+
+.btn-header {
+  background-color: #1d0e02;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+  margin-right: 15px;
+}
+
+.btn-header:hover {
+  background-color: #120b01;
+}
+
+
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 80px;
+  width: 100%;
+  max-width: 1400px; 
+  margin: 15px;   
+  padding: 0 20px;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 550px;
+  flex-shrink: 0;
+}
+
+.title {
+  margin-top: 0;
+ 
+}
+
+.title h1 {
+  font-size: 3.2rem;
+  line-height: 1.15;
+  font-weight: 700;
+  color: #2c1e22;
+  margin-bottom: 15px;
+}
+
+.title p {
+  font-size: 1rem;
+  color: #5b3004;
+  line-height: 1.5;
+  margin-top: 30px;
+}
+
+.btn-primary {
+  background-color: #5b3004; 
+  color: #ffffff;
+  padding: 12px 24px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  display: inline-block;
+  box-shadow: 0 4px 12px rgba(34, 14, 1, 0.5);
+  width: fit-content; 
+}
+
+.btn-secundary {
+  background-color: #321a03; 
+  color: #ffffff;
+  padding: 12px 24px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  display: inline-block;
+  box-shadow: 0 4px 12px rgba(34, 14, 1, 0.5);
+  width: fit-content; 
+}
+
+.btn-primary:hover, .btn-secundary:hover {
+  background-color: #996d2f;
+}
+
+.cookie-principal {
+    display: flex;
+    justify-content: right;
+    flex: 1;
+    margin-top:0;
+
+}
+
+.cookie-principal img {
+  height: auto;
+  border-radius: 30px;
+  object-fit: contain;
+  margin-top: 0;
+}
+
+
+.sabores {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ margin:15px;
+
+}
+
+.menu p {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #432805;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.menu h1 {
+  font-size: 2rem;
+  color: #2c1e22;
+  margin-bottom: 8px;
+}
+
+.menu p + p, .menu h1 + p {
+  font-size: 0.95rem;
+  color: #fefbfc;
+}
+
+
+.cookies-box {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-bottom: 80px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.cookie-sabor {
+  background-color: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative; /* Essencial para posicionar o preço no canto */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+}
+
+.cookie-sabor img {
+  object-fit: initial;
+}
+
+.cookie-info {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.cookie-info h1 {
+  font-size: 1.25rem;
+  color: #2c1e22;
+  margin-bottom: 10px;
+}
+
+.cookie-info p {
+  font-size: 0.9rem;
+  color: #6d5e63;
+  line-height: 1.4;
+  margin-bottom: 30px; /* Espaço para o preço absoluto não sobrepor o texto */
+}
+
+
+.cookie-info .preco {
+  position: absolute;
+  bottom: 20px;
+  right: 24px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #b87d4b; 
+}
+
+.btn-pedidos{
+  background-color: #79450d; 
+  color: #ffffff;
+  padding: 10px;
+  border-radius: 60px;
+  text-decoration: none;
+  font-weight: 600;
+  text-align: center;
+  font-size: 2rem;
+  display:flow-root;
+  margin: 80px;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(34, 14, 1, 0.5);
+  
+}
+.btn-pedidos:hover{
+     background-color: #361f06; 
+     color:#ffcccc;
+
+}
+
+
+.forno-box {
+  background-color: #2e1900;
+  color: #ffffff;
+  padding: 40px;
+  text-align: center;
+  margin:60px;
+  border-radius: 24px;
+  margin-bottom: 40px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+}
+
+.forno h1 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.forno p {
+  color: #d1c4c8;
+  font-size: 0.95rem;
+  margin-bottom: 6px;
+}
+
+.beneficios-list {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    list-style:none;
+    padding: 25px;
+    max-width: 480px;
+
+}
+
+.beneficios-list li {
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  font-size: 1.05rem;
+  opacity: 0.95;
+}
+
+.check {
+  background-color: #532703;
+  color: #ffcccc;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8rem;
+  margin-right: 14px;
+  flex-shrink: 0;
+}
+
+.card-cadastro {
+  background-color: #3c2203; 
+  color: #9e7033;
+  justify-content: center;
+  padding: 40px;
+  border-radius: 20px;
+  width: 500px;
+  max-width: 450px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.card-cadastro h2 {
+  margin: 0 0 6px 0;
+  font-size: 1.6rem;
+}
+
+.subtitulo {
+  font-size: 0.85rem;
+  color: #fffefe;
+  margin-bottom: 25px;
+}
+
+
+.input-group {
+  margin-bottom: 18px;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group label {
+  font-size: 0.8rem;
+  color: #ecebeb;
+  margin-bottom: 6px;
+}
+
+.input-group input {
+  padding: 12px 14px;
+  border: 1px solid #e2d8d0;
+  border-radius: 8px;
+  background-color: #ffffff;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.input-group input::placeholder {
+  color: #bfaea6;
+}
+
+.btn-enviar {
+  width: 100%;
+  background-color: #5b3004; 
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 0.95rem;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.2s;
+}
+
+
+footer {
+  text-align: center;
+  padding: 20px 0;
+  color: #fdfdfd;
+  font-size: 0.85rem;
+  border-top: 1px solid #e6ded8;
+  margin-top: 40px;
+}
