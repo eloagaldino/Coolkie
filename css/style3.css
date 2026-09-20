@@ -1,0 +1,100 @@
+* {
+  font-family: 'DM Sans', sans-serif;
+}
+
+body {
+  background-color: #ecd4a5; 
+  color: #2c1e22;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+  margin: 0;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    gap: 30px ;
+    margin: 0;
+}
+
+
+header {
+  display: flex;
+  justify-content: space-between;
+  gap:20px;
+  align-items: center;
+  background-color: #633b18;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0; 
+}
+
+.logo h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1d0e02;
+  letter-spacing: -1px;
+  margin-left: 15px;
+}
+
+.logo a{
+    text-decoration: none;
+    color: inherit;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+nav :hover{
+    color: #120b01;
+}
+
+.btn-header {
+  background-color: #1d0e02;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+  margin-right: 15px;
+}
+
+.btn-header:hover {
+  background-color: #120b01;
+}
+
+.carousel-transition {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FDFBF7;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D5BCB0;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #8D5B4C;
+        }

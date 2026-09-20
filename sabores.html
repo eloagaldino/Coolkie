@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CK - Coolkie</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap">
+<link rel="stylesheet" href="css/style.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cookie: {
+                            50: '#FDFBF7',
+                            100: '#F5EBE6',
+                            200: '#EAD7CD',
+                            300: '#D5BCB0',
+                            600: '#8D5B4C',
+                            700: '#6B4233',
+                            800: '#4E342E',
+                            900: '#3E2723',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html">
+            <h1> Coolkie.</h1>
+            </a>
+        </div>
+         <nav>
+            <ul>
+                <li><a href="sabores.html">Sabores</a></li>
+            </ul>
+         </nav>
+         <a href="cliente.html" class="btn-header">Cliente VIP</a>
+         <div class="flex items-center space-x-4">
+                <button onclick="openCart()" class="relative bg-cookie-100 hover:bg-cookie-200 text-cookie-800 p-3 rounded-full transition-all shadow-sm flex items-center justify-center">
+                    <i class="fa-solid fa-shopping-bag text-lg"></i>
+                    <a> cart </a>
+                    <span id="cart-counter" class="absolute -top-1 -right-1 bg-cookie-600 text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center shadow">0</span>
+                </button>
+            </div>
+    </header>
+        <main class="flex-grow">
+        <section class="py-12 md:py-16 text-center px-4 max-w-4xl mx-auto">
+            <span class="inline-block py-1 px-4 rounded-full bg-cookie-200/60 text-cookie-800 text-xs font-semibold tracking-wider uppercase mb-4 shadow-sm">
+                Coleção Exclusiva
+            </span>
+            <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl font-bold text-cookie-900 tracking-tight mb-6">
+                Descubra Nossos Sabores Artesanais
+            </h1>
+            <p class="text-cookie-700 text-lg sm:text-xl max-w-2xl mx-auto font-light leading-relaxed">
+                Feitos com ingredientes nobres, chocolate belga autêntico e muito carinho. Croizantes por fora, macios e recheados por dentro.
+            </p>
+        </section>
+
+        <section id="sabores" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+            <div class="relative bg-white rounded-3xl shadow-xl border border-cookie-200/80 overflow-hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-12 min-h-[520px]">
+                    
+        
+                    <div class="lg:col-span-6 relative bg-cookie-100 flex items-center justify-center overflow-hidden min-h-[300px] lg:min-h-full">
+                        <img id="cookie-image" src="" alt="Cookie" class="w-full h-full object-cover carousel-transition absolute inset-0 transform hover:scale-105 duration-700" onerror="this.src='https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=800&q=80'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent lg:hidden"></div>
+                        <div id="cookie-badge" class="absolute top-4 left-4 bg-cookie-700/90 backdrop-blur-sm text-white px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider shadow">
+                            Mais Vendido
+                        </div>
+                    </div>
+
+                 
+                    <div class="lg:col-span-6 p-8 sm:p-12 flex flex-col justify-between bg-white">
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <span id="cookie-category" class="text-xs font-bold tracking-widest text-cookie-600 uppercase">Linha Clássica</span>
+                                <span class="text-amber-500 text-sm font-medium flex items-center gap-1">
+                                    <i class="fa-solid fa-star"></i> <span id="cookie-rating">4.9</span> (Avaliações)
+                                </span>
+                            </div>
+                            
+                            <h2 id="cookie-name" class="font-serif text-3xl sm:text-4xl font-bold text-cookie-900 mb-4 leading-tight">
+                                Nome do Sabor
+                            </h2>
+                            
+                            <p id="cookie-description" class="text-cookie-700 text-base sm:text-lg leading-relaxed mb-6 font-light">
+                                Descrição detalhada do cookie aparecerá aqui, destacando seus ingredientes secretos e texturas irresistíveis.
+                            </p>
+                        </div>
+
+                        <div>
+                            <div class="flex items-center justify-between mb-8 pt-4 border-t border-cookie-100">
+                                <div>
+                                    <span class="block text-xs uppercase tracking-wider text-cookie-600 font-medium">Preço Unitário</span>
+                                    <span id="cookie-price" class="font-serif text-3xl font-bold text-cookie-900">R$ 0,00</span>
+                                </div>
+                                <div class="text-right">
+                                    <span class="block text-xs uppercase tracking-wider text-cookie-600 font-medium">Peso Aproximado</span>
+                                    <span class="text-cookie-800 font-semibold text-sm">130g de pura tentação</span>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center gap-4">
+                                <button onclick="addToCartCurrent()" class="flex-1 bg-cookie-700 hover:bg-cookie-800 active:scale-[0.98] text-white font-medium py-4 px-6 rounded-2xl shadow-lg shadow-cookie-700/25 transition-all flex items-center justify-center gap-3 group">
+                                    <i class="fa-solid fa-cart-plus text-lg group-hover:scale-110 transition-transform"></i>
+                                    <span>Pedir Sabor</span>
+                                </button>
+                                <div class="flex items-center gap-2">
+                                    <button onclick="prevCookie()" class="w-12 h-12 rounded-2xl border border-cookie-300 hover:bg-cookie-100 text-cookie-800 flex items-center justify-center transition-all">
+                                        <i class="fa-solid fa-chevron-left"></i>
+                                        <a> < </a>
+                                    </button>
+                                    <button onclick="nextCookie()" class="w-12 h-12 rounded-2xl border border-cookie-300 hover:bg-cookie-100 text-cookie-800 flex items-center justify-center transition-all">
+                                        <i class="fa-solid fa-chevron-right"></i>
+                                        <a> > </a>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Card Footer / Indicators -->
+                <div class="bg-cookie-50 px-6 py-4 border-t border-cookie-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div id="carousel-indicators" class="flex items-center gap-2 overflow-x-auto max-w-full py-1">
+                        <!-- Dots populated via JS -->
+                    </div>
+                    <span id="carousel-counter" class="text-xs font-semibold uppercase tracking-wider text-cookie-600">
+                        1 de 10 Sabores
+                    </span>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
+            <div class="text-center mb-10">
+                <h3 class="font-serif text-2xl font-bold text-cookie-900">Todos os 10 Sabores em Destaque</h3>
+                <p class="text-cookie-600 text-sm mt-1">Clique em qualquer card para selecioná-lo instantaneamente no carrossel</p>
+            </div>
+            
+            <div id="thumbnails-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+                <!-- Grid items generated by JS -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 bg-cookie-900 text-white px-6 py-3 rounded-2xl shadow-2xl flex items-center gap-3">
+        <i class="fa-solid fa-check-circle text-emerald-400 text-lg"></i>
+        <div>
+            <p id="toast-title" class="font-semibold text-sm">Adicionado à sacola!</p>
+            <p id="toast-desc" class="text-xs text-cookie-200">Seu cookie foi incluído com sucesso.</p>
+        </div>
+    </div>
+
+    <!-- Cart Modal Backdrop -->
+    <div id="cart-modal" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm hidden flex justify-end transition-opacity">
+        <div class="bg-white w-full max-w-md h-full shadow-2xl flex flex-col justify-between p-6 overflow-y-auto">
+            <div>
+                <div class="flex items-center justify-between pb-4 border-b border-cookie-200">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-shopping-bag text-cookie-700 text-xl"></i>
+                        <h3 class="font-serif text-xl font-bold text-cookie-900">Sua Sacola</h3>
+                    </div>
+                    <button onclick="closeCart()" class="w-10 h-10 rounded-full hover:bg-cookie-100 flex items-center justify-center text-cookie-700 transition-colors">
+                        <i class="fa-solid fa-xmark text-lg"></i>
+                        <a href="sabores.html"> Voltar </a>
+                    </button>
+                </div>
+                
+                <div id="cart-items" class="py-6 space-y-4">
+                    <!-- Cart items populated here -->
+                    <p id="empty-cart-msg" class="text-center text-cookie-600 py-12 font-light">Sua sacola está vazia no momento.</p>
+                </div>
+            </div>
+
+            <div class="border-t border-cookie-200 pt-4">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="font-medium text-cookie-700">Total:</span>
+                    <span id="cart-total" class="font-serif text-2xl font-bold text-cookie-900">R$ 0,00</span>
+                </div>
+                <button onclick="checkout()" class="w-full bg-cookie-700 hover:bg-cookie-800 text-white font-semibold py-4 rounded-2xl shadow-lg transition-all flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>Finalizar Pedido via WhatsApp</span>
+                </button>
+            </div>
+        </div>
+    </div>
+     <script>
+        // 10 Distinct Cookie Flavors Data
+        const cookies = [
+            {
+                id: 1,
+                name: "Chocolate Belga Clássico",
+                category: "Linha Tradicional",
+                description: "Nosso carro-chefe! Massa amanteigada artesanal com generosos pedaços de chocolate belga meio amargo e toque de flor de sal.",
+                price: 12.00,
+                rating: 4.9,
+                badge: "Mais Vendido",
+                image: "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                id: 2,
+                name: "Red Velvet com Cream Cheese",
+                category: "Linha Especial",
+                description: "Massa vermelha aveludada com cacau leve, recheada com um irresistível creme de cream cheese artesanal levemente adocicado.",
+                price: 14.00,
+                rating: 4.8,
+                badge: "Favorito do Chef",
+                image: "https://thesqueakymixer.com/wp-content/uploads/2023/10/IMG_0952-scaled.jpg"
+            },
+            {
+                id: 3,
+                name: "Double Chocolate Fudge",
+                category: "Linha Intensa",
+                description: "Para os verdadeiros chocólatras! Massa de cacau black super concentrada, recheada com ganache cremosa de chocolate 70%.",
+                price: 13.00,
+                rating: 5.0,
+                badge: "Super Cremoso",
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDg4_hafMd-fLO49dFiC9qchqeJaqr0_stt2gt_3NWqbP00ASYk36cnUtJ&s=10"
+            },
+            {
+                id: 4,
+                name: "Pistache com Chocolate Branco",
+                category: "Linha Premium",
+                description: "Massa delicada com pasta pura de pistache siciliano, pedaços crocantes de pistache torrado e gotas de chocolate branco nobre.",
+                price: 16.00,
+                rating: 4.9,
+                badge: "Edição Limitada",
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYakLe4kxWSyfhsG7pCzFcDBXkdxsRn5u3sIiXsQEiiH88WFjECvUMrmvK&s=10"
+            },
+            {
+                id: 5,
+                name: "Doce de Leite Artesanal",
+                category: "Linha Rústica",
+                description: "Inspirado nas receitas caseiras de vó, este cookie traz recheio abundante de doce de leite argentino cremoso e casquinha dourada.",
+                price: 14.50,
+                rating: 4.7,
+                badge: "Recheado",
+                image: "https://acdn-us.mitiendanube.com/stores/003/439/971/products/foto-7-3-7ae0d1aad38268957a17019537999470-1024-1024.webp"
+            },
+            {
+                id: 6,
+                name: "Nutella Suprema",
+                category: "Linha Especial",
+                description: "Massa amanteigada clássica com centro totalmente recheado com pura Nutella e finalizado com avelãs tostadas picadas.",
+                price: 17.00,
+                rating: 5.0,
+                badge: "Irresistível",
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8KasYpCNHLFPnnU1ugIcNMpTMR27vrJEP1e5VJSzJyfq6iYMuLMl-J20&s=10"
+            },
+            {
+                id: 7,
+                name: "Leite Ninho com Nutella",
+                category: "Linha Festiva",
+                description: "Massa clarinha aromatizada com Leite Ninho original, cobertura cremosa generosa e toque de Nutella polvilhada.",
+                price: 15.00,
+                rating: 4.8,
+                badge: "Sucesso",
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZiqSOAEDmRsbLi_dGQI4tctg3Biz1wz-QrCedr2u1DbsCCbeXp-ZPMyE_&s=10"
+            },
+            {
+                id: 8,
+                name: "Macadâmia e Cranberry",
+                category: "Linha Gourmet",
+                description: "Um contraste perfeito entre a crocância amanteigada das nozes de macadâmia e a acidez equilibrada das frutas cranberry.",
+                price: 15.50,
+                rating: 4.6,
+                badge: "Exclusivo",
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7L8MY2bugJqA92dK6OGBKoVcODJPylZLfoA0FGxyxvxNJvTapUUfM8ck&s=10"
+            },
+            {
+                id: 9,
+                name: "Cookie S'mores",
+                category: "Linha Festiva",
+                description: "Marshmallow levemente tostado no maçarico por cima da massa de caramelo salgado e pedaços de biscoito amanteigado.",
+                price: 14.00,
+                rating: 4.7,
+                badge: "Artesanal",
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVNYIlDXs9Xv2iBTwyb859j9RNQXpojsoI0N6fai1Qq22ACXLcgb5ZT7pg&s=10"
+            },
+            {
+                id: 10,
+                name: "Café com Caramelo Salgado",
+                category: "Linha Aromática",
+                description: "Massa infundida com espresso gourmet, gotas de caramelo salgado artesanal que derretem na boca a cada mordida.",
+                price: 13.50,
+                rating: 4.9,
+                badge: "Especialidade",
+                image: "https://docepedia.com/_next/image?url=https%3A%2F%2Fadmin.docepedia.com%2Fsite%2Fuploads%2F2025%2F11%2FCookies_Caramelo.png&w=1080&q=75"
+            }
+        ];
+
+        let currentIndex = 0;
+        let cart = [];
+
+        // DOM Elements
+        const cookieImage = document.getElementById('cookie-image');
+        const cookieCategory = document.getElementById('cookie-category');
+        const cookieName = document.getElementById('cookie-name');
+        const cookieDescription = document.getElementById('cookie-description');
+        const cookiePrice = document.getElementById('cookie-price');
+        const cookieRating = document.getElementById('cookie-rating');
+        const cookieBadge = document.getElementById('cookie-badge');
+        const carouselIndicators = document.getElementById('carousel-indicators');
+        const carouselCounter = document.getElementById('carousel-counter');
+        const thumbnailsGrid = document.getElementById('thumbnails-grid');
+
+        // Initialize Carousel
+        function initCarousel() {
+            renderIndicators();
+            renderThumbnails();
+            updateCarousel();
+        }
+
+        function renderIndicators() {
+            carouselIndicators.innerHTML = '';
+            cookies.forEach((_, idx) => {
+                const btn = document.createElement('button');
+                btn.className = `h-3 rounded-full transition-all ${idx === currentIndex ? 'w-8 bg-cookie-700' : 'w-3 bg-cookie-300 hover:bg-cookie-400'}`;
+                btn.onclick = () => goToCookie(idx);
+                carouselIndicators.appendChild(btn);
+            });
+        }
+
+        function renderThumbnails() {
+            thumbnailsGrid.innerHTML = '';
+            cookies.forEach((cookie, idx) => {
+                const card = document.createElement('div');
+                card.className = `cursor-pointer rounded-2xl p-2 border-2 transition-all bg-white flex flex-col items-center ${idx === currentIndex ? 'border-cookie-700 shadow-md scale-105' : 'border-cookie-200 hover:border-cookie-400 opacity-80 hover:opacity-100'}`;
+                card.onclick = () => goToCookie(idx);
+                card.innerHTML = `
+                    <div class="w-full h-20 rounded-xl overflow-hidden mb-2 bg-cookie-100">
+                        <img src="${cookie.image}" alt="${cookie.name}" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=400&q=80'">
+                    </div>
+                    <span class="text-xs font-semibold text-cookie-900 text-center line-clamp-1">${cookie.name}</span>
+                    <span class="text-xs font-bold text-cookie-600 mt-1">R$ ${cookie.price.toFixed(2).replace('.', ',')}</span>
+                `;
+                thumbnailsGrid.appendChild(card);
+            });
+        }
+
+        function updateCarousel() {
+            const cookie = cookies[currentIndex];
+            
+            // Fade out / Fade in effect
+            cookieImage.style.opacity = '0';
+            setTimeout(() => {
+                cookieImage.src = cookie.image;
+                cookieImage.style.opacity = '1';
+            }, 150);
+
+            cookieCategory.textContent = cookie.category;
+            cookieName.textContent = cookie.name;
+            cookieDescription.textContent = cookie.description;
+            cookiePrice.textContent = `R$ ${cookie.price.toFixed(2).replace('.', ',')}`;
+            cookieRating.textContent = cookie.rating;
+            cookieBadge.textContent = cookie.badge;
+            carouselCounter.textContent = `${currentIndex + 1} de ${cookies.length} Sabores`;
+
+            renderIndicators();
+            renderThumbnails();
+        }
+
+        function nextCookie() {
+            currentIndex = (currentIndex + 1) % cookies.length;
+            updateCarousel();
+        }
+
+        function prevCookie() {
+            currentIndex = (currentIndex - 1 + cookies.length) % cookies.length;
+            updateCarousel();
+        }
+
+        function goToCookie(index) {
+            currentIndex = index;
+            updateCarousel();
+        }
+
+        // Cart & Toast Logic
+        function addToCartCurrent() {
+            const cookie = cookies[currentIndex];
+            const existing = cart.find(item => item.id === cookie.id);
+            if (existing) {
+                existing.quantity += 1;
+            } else {
+                cart.push({ ...cookie, quantity: 1 });
+            }
+            updateCartUI();
+            showToast("Adicionado à sacola!", `${cookie.name} foi incluído com sucesso.`);
+        }
+
+        function showToast(title, desc) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-title').textContent = title;
+            document.getElementById('toast-desc').textContent = desc;
+            
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-24', 'opacity-0');
+            }, 3500);
+        }
+
+        function updateCartUI() {
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cart-counter').textContent = totalItems;
+
+            const cartItemsContainer = document.getElementById('cart-items');
+            const emptyMsg = document.getElementById('empty-cart-msg');
+            const cartTotal = document.getElementById('cart-total');
+
+            if (cart.length === 0) {
+                emptyMsg.style.display = 'block';
+                cartItemsContainer.innerHTML = '';
+                cartItemsContainer.appendChild(emptyMsg);
+                cartTotal.textContent = 'R$ 0,00';
+                return;
+            }
+
+            emptyMsg.style.display = 'none';
+            let html = '';
+            let totalVal = 0;
+
+            cart.forEach(item => {
+                totalVal += item.price * item.quantity;
+                html += `
+                    <div class="flex items-center justify-between bg-cookie-50 p-3 rounded-2xl border border-cookie-200">
+                        <div class="flex items-center gap-3">
+                            <img src="${item.image}" class="w-12 h-12 rounded-xl object-cover" onerror="this.src='https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=200&q=80'">
+                            <div>
+                                <h4 class="font-semibold text-sm text-cookie-900">${item.name}</h4>
+                                <span class="text-xs text-cookie-600 font-medium">R$ ${item.price.toFixed(2).replace('.', ',')} un.</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <button onclick="changeQuantity(${item.id}, -1)" class="w-7 h-7 bg-white border border-cookie-300 rounded-lg flex items-center justify-center text-cookie-800 hover:bg-cookie-100">-</button>
+                            <span class="text-sm font-bold w-5 text-center">${item.quantity}</span>
+                            <button onclick="changeQuantity(${item.id}, 1)" class="w-7 h-7 bg-white border border-cookie-300 rounded-lg flex items-center justify-center text-cookie-800 hover:bg-cookie-100">+</button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            cartItemsContainer.innerHTML = html;
+            cartTotal.textContent = `R$ ${totalVal.toFixed(2).replace('.', ',')}`;
+        }
+
+        function changeQuantity(id, delta) {
+            const item = cart.find(i => i.id === id);
+            if (item) {
+                item.quantity += delta;
+                if (item.quantity <= 0) {
+                    cart = cart.filter(i => i.id !== id);
+                }
+                updateCartUI();
+            }
+        }
+
+        function openCart() {
+            document.getElementById('cart-modal').classList.remove('hidden');
+        }
+
+        function closeCart() {
+            document.getElementById('cart-modal').classList.add('hidden');
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                showToast("Sacola vazia", "Adicione pelo menos um cookie antes de finalizar.");
+                return;
+            }
+            let text = "Olá! Gostaria de fazer o seguinte pedido no Atelier do Cookie:%0A%0A";
+            let total = 0;
+            cart.forEach(item => {
+                text += `• ${item.quantity}x ${item.name} - R$ ${(item.price * item.quantity).toFixed(2).replace('.', ',')}%0A`;
+                total += item.price * item.quantity;
+            });
+            text += `%0A*Total:* R$ ${total.toFixed(2).replace('.', ',')}`;
+            window.open(`https://wa.me/5511999999999?text=${text}`, '_blank');
+        }
+
+       
+        window.onload = function() {
+            initCarousel();
+        };
+    </script>
+</body>
+</html>

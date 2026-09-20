@@ -39,6 +39,11 @@ header {
   margin-left: 15px;
 }
 
+.logo a{
+    text-decoration: none;
+    color: inherit;
+}
+
 nav {
   display: flex;
   align-items: center;
