@@ -1,35 +1,46 @@
+cd ~/Coolkie
+cp app.py app.py.bak
+cat > app.py << 'EOF'
 import os
-from flask import Flask, jsonify
 
-app = Flask(__name__)
+from flask import Flask, abort, jsonify, send_from_directory
 
-# Configurações do app vindas de variáveis de ambiente (prática recomendada de segurança da AWS)
-app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'chave-secreta-padrao-desenvolvimento')
-app.config['ENV'] = os.getenv('FLASK_ENV', 'production')
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+app = Flask(__name__, static_folder=None)
+
+PAGES = {"index.html", "cliente.html", "sabores.html"}
 
 
-@app.route('/')
+@app.route("/")
 def home():
-    """Rota principal de teste da aplicação."""
-    return jsonify({
-        "message": "Aplicação Flask rodando com sucesso na AWS!",
-        "status": "online"
-    }), 200
+    return send_from_directory(BASE_DIR, "index.html")
 
 
-@app.route('/health')
-def health_check():
-    """
-    Endpoint de Health Check para Application Load Balancers (ALB) da AWS,
-    Elastic Beanstalk, App Runner ou ECS monitoring.
-    """
+@app.route("/<path:page>.html")
+def pages(page):
+    filename = f"{page}.html"
+    if filename not in PAGES:
+        abort(404)
+    return send_from_directory(BASE_DIR, filename)
+
+
+@app.route("/css/<path:filename>")
+def css(filename):
+    return send_from_directory(os.path.join(BASE_DIR, "css"), filename)
+
+
+@app.route("/image/<path:filename>")
+def image(filename):
+    return send_from_directory(os.path.join(BASE_DIR, "image"), filename)
+
+
+@app.route("/health")
+def health():
     return jsonify({"status": "healthy"}), 200
 
 
-if __name__ == '__main__':
-    # Obtém a porta injetada pela AWS (Elastic Beanstalk/App Runner) ou usa 8080/5000 por padrão
-    port = int(os.getenv('PORT', 5000))
-    # Em produção na AWS, nunca use debug=True e configure host='0.0.0.0'
-    debug_mode = os.getenv('FLASK_DEBUG', 'False').lower() in ['true', '1']
-    
-    app.run(host='0.0.0.0', port=port, debug=debug_mode)
+if __name__ == "__main__":
+    port = int(os.getenv("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
+EOF
