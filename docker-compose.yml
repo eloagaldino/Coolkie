@@ -1,0 +1,8 @@
+services:
+  coolkie:
+    build: .
+    image: coolkie:latest
+    container_name: coolkie
+    ports:
+      - "80:80"
+    restart: unless-stopped
