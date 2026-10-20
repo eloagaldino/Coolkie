@@ -1,4 +1,4 @@
-cd ~/Coolkie
+cd Coolkie
 cp app.py app.py.bak
 cat > app.py << 'EOF'
 import os
