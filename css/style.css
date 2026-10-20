@@ -163,6 +163,7 @@ nav :hover{
 }
 
 .cookie-principal img {
+  max-width: 100%;
   height: auto;
   border-radius: 30px;
   object-fit: contain;
