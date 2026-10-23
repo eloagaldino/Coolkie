@@ -56,6 +56,27 @@ def css(filename):
 def image(filename):
     return send_from_directory(os.path.join(BASE_DIR, "image"), filename)
 
+@app.route("/salvar-cliente", methods=["POST"])
+def salvar_cliente():
+    # Recolhe os dados enviados pelo formulário HTML (através do atributo 'name' dos inputs)
+    nome = request.form.get("nome")
+    email = request.form.get("email")
+
+    try:
+        # Abre a conexão com o banco RDS na AWS
+        conn = get_db_connection()
+        with conn.cursor() as cursor:
+            # Insere os dados na tabela do banco (certifique-se de que a tabela 'clientes' existe)
+            sql = "INSERT INTO clientes (nome, email) VALUES (%s, %s)"
+            cursor.execute(sql, (nome, email))
+            conn.commit() # Salva as alterações no banco
+        conn.close()
+        
+        return "Informações guardadas com sucesso no banco da AWS! 🎉"
+    
+    except Exception as e:
+        return f"Erro ao salvar no banco: {str(e)}"
+
 
 @app.route("/health")
 def health():
