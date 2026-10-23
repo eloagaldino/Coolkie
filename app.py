@@ -1,13 +1,32 @@
-cd ~/Coolkie
-cp app.py app.py.bak
-cat > app.py << 'EOF'
 import os
+from flask import Flask, send_from_directory, abort, jsonify
+from dotenv import load_dotenv
+import pymysql
 
-from flask import Flask, abort, jsonify, send_from_directory
+
+load_dotenv()
+
+DB_HOST = os.getenv("DB_HOST")
+DB_USER = os.getenv("DB_USER")
+DB_PASSWORD = os.getenv("DB_PASSWORD")
+DB_NAME = os.getenv("DB_NAME")
+DB_PORT = int(os.getenv("DB_PORT", 3306))
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 app = Flask(__name__, static_folder=None)
+
+
+def get_db_connection():
+    connection = pymysql.connect(
+        host=DB_HOST,
+        user=DB_USER,
+        password=DB_PASSWORD,
+        database=DB_NAME,
+        port=DB_PORT,
+        cursorclass=pymysql.cursors.DictCursor
+    )
+    return connection
 
 PAGES = {"index.html", "cliente.html", "sabores.html"}
 
@@ -37,10 +56,17 @@ def image(filename):
 
 @app.route("/health")
 def health():
-    return jsonify({"status": "healthy"}), 200
+    # Opcional: testando se a API consegue falar com o banco RDS na AWS
+    db_status = "connected"
+    try:
+        conn = get_db_connection()
+        conn.close()
+    except Exception as e:
+        db_status = f"error: {str(e)}"
+
+    return jsonify({"status": "healthy", "database": db_status}), 200
 
 
 if __name__ == "__main__":
     port = int(os.getenv("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
-EOF
