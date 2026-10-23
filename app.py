@@ -1,3 +1,6 @@
+cd ~/Coolkie
+cp app.py app.py.bak
+cat > app.py << 'EOF'
 import os
 from flask import Flask, send_from_directory, abort, jsonify
 from dotenv import load_dotenv
